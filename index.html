@@ -168,6 +168,29 @@
                 <label for="description">Description:</label>
                 <textarea id="description" rows="3" required></textarea>
             </div>
+            <div class="form-group">
+                <label for="category">Category:</label>
+                <select id="category" required>
+                    <option value="Foreground">Foreground</option>
+                    <option value="Background">Background</option>
+                    <option value="Prop">Prop</option>
+                    <option value="Interactable">Interactable</option>
+                    <option value="Door">Door</option>
+                    <option value="Component">Component</option>
+                    <option value="Consumable">Consumable</option>
+                    <option value="Hands">Hands</option>
+                    <option value="Face">Face</option>
+                    <option value="Eyes">Eyes</option>
+                    <option value="Hair">Hair</option>
+                    <option value="Head">Head</option>
+                    <option value="Chest">Chest</option>
+                    <option value="Legs">Legs</option>
+                    <option value="Feet">Feet</option>
+                    <option value="Back">Back</option>
+                    <option value="Pet">Pet</option>
+                    <option value="Vehicle">Vehicle</option>
+                </select>
+            </div>
             <button type="submit">Create Object</button>
             <div id="error" class="error"></div>
         </form>
@@ -205,6 +228,7 @@ let galleryItems = [];
                  onerror="this.onerror=null; this.src='https://via.placeholder.com/400x300?text=Image+Error';">
         </div>
         <h3>${item.name}</h3>
+        <p>Category: ${item.category}</p>
                 `;
                 
                 div.innerHTML = imgHtml;
@@ -255,10 +279,11 @@ function displayItems(items) { // Now accepts an array of items to display
                     const newItem = {
                         name: document.getElementById('name').value.trim(),
                         imageUrl: document.getElementById('imageUrl').value.trim(),
-                        description: document.getElementById('description').value
+                        description: document.getElementById('description').value,
+                        category: document.getElementById('category').value
                     };
 
-                    if (!newItem.name || !newItem.imageUrl || !newItem.description) {
+                    if (!newItem.name || !newItem.imageUrl || !newItem.description || !newItem.category) {
                         throw new Error('Please fill in all fields');
                     }
 
