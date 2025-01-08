@@ -235,7 +235,7 @@ let galleryItems = [];
 
                 div.addEventListener('click', () => {
                     panelTitle.textContent = item.name;
-                    panelDescription.innerHTML = item.description;
+                    panelDescription.textContent = item.description;
                     document.getElementById('panelImage').src = item.imageUrl;
                     descriptionPanel.style.display = 'block';
                 });
